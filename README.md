@@ -1,6 +1,6 @@
 # Krypto Radar
 
-**Materiały:** [opis projektu](docs/OPIS.md) · [prezentacja PDF](docs/Krypto-Radar-prezentacja.pdf) · [scenariusz filmu](docs/SCENARIUSZ-FILMU.md) · film: _link do uzupełnienia_
+**Materiały:** [opis projektu](docs/OPIS.md) · [prezentacja PDF](docs/Krypto-Radar-prezentacja.pdf) · [scenariusz filmu](docs/SCENARIUSZ-FILMU.md) · [film demo (MP4, 2:21)](docs/krypto-radar-demo.mp4)
 
 ![Wynik analizy](docs/screenshots/03-adresy.png)
 

@@ -1,0 +1,72 @@
+1
+00:00:08,850 --> 00:00:28,631
+Analityk podaje identyfikatory osoby – wystarczy jeden. Tu: fikcyjna osoba z trybu demo.
+
+2
+00:00:28,631 --> 00:00:32,451
+Tryb Demo działa na syntetycznych źródłach. Tryb Live – na prawdziwym internecie.
+
+3
+00:00:32,451 --> 00:00:39,459
+Maigret szuka kont po nicku, wyszukiwarka – stron z identyfikatorami. Każde źródło jest archiwizowane (URL, czas, SHA-256).
+
+4
+00:00:39,459 --> 00:00:46,302
+Potem: tożsamość źródeł, wykrycie adresów, weryfikacja, analiza blockchain i Wskaźnik Pewności.
+
+5
+00:00:46,302 --> 00:00:50,696
+Adres ETH znaleziony w 3 niezależnych źródłach: profil, strona osobista, ogłoszenie P2P → 100%.
+
+6
+00:00:50,696 --> 00:00:55,225
+Każdy wynik ma rozpisane reguły: baza za typ źródła, kontekst zdania, T – czy źródło należy do osoby, synergia.
+
+7
+00:00:55,225 --> 00:01:00,656
+Każde wystąpienie: zdanie z adresem, autor wpisu i kopia archiwalna strony.
+
+8
+00:01:00,656 --> 00:01:09,145
+Ten sam nick w innym serwisie, ale profil innej osoby („Piotr Inny”) → tylko 24%. Giveaway → 17%.
+
+9
+00:01:09,145 --> 00:01:14,575
+Odrzucone przypisania: adres giełdy Binance, kontrakt USDT i kontrakt rozpoznany po bytecode → 0%.
+
+10
+00:01:14,575 --> 00:01:21,540
+Adresy innych autorów w tym samym wątku i adres z literówką (zła suma kontrolna) nie trafiają do osoby.
+
+11
+00:01:21,540 --> 00:01:24,497
+Analiza transakcji przypisanych adresów i sygnały wyjścia do fiat.
+
+12
+00:01:24,497 --> 00:01:30,745
+ETH → USDT przez Uniswap, wpłata na Binance, escrow P2P, bramka karty krypto. Każdy wskaźnik wskazuje transakcje.
+
+13
+00:01:30,745 --> 00:01:38,464
+Chronologia przepływów z kontrahentami oznaczonymi w rejestrze etykiet.
+
+14
+00:01:38,464 --> 00:01:48,786
+Analizy można powtarzać cyklicznie. Symulujemy zmianę: osoba podmienia adres na profilu.
+
+15
+00:01:48,786 --> 00:01:56,044
+Kolejny przebieg wykrywa podmianę adresu na tym samym profilu.
+
+16
+00:01:56,044 --> 00:02:02,860
+Graf powiązań: identyfikator → źródło → adres → giełda. Nowy adres: 80% dzięki przelewowi ze starego.
+
+17
+00:02:02,860 --> 00:02:11,786
+Raport HTML / PDF: fakty, wyniki obliczeń i wnioski do weryfikacji – oddzielnie.
+
+18
+00:02:11,786 --> 00:02:16,594
+Źródła z czasem pobrania i SHA-256, wersje narzędzi i dziennik zapytań – analizę można odtworzyć.
+

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8"><title>Krypto Radar</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #fff; color: #18202c; font-family: 'Segoe UI', system-ui, sans-serif; }
+  .wrap { height: 100%; display: flex; flex-direction: column; justify-content: center; padding: 0 120px; }
+  h1 { font-size: 84px; margin: 0 0 20px; letter-spacing: -0.02em; }
+  p { font-size: 28px; color: #4b5565; margin: 0; max-width: 1000px; line-height: 1.4; }
+  .meta { margin-top: 48px; font-size: 20px; color: #7a8597; }
+</style></head>
+<body><div class="wrap">
+  <h1 id="t"></h1><p id="s"></p><div class="meta" id="m"></div>
+</div>
+<script>
+  const q = new URLSearchParams(location.search);
+  document.getElementById('t').textContent = q.get('t') || '';
+  document.getElementById('s').textContent = q.get('s') || '';
+  document.getElementById('m').textContent = q.get('m') || '';
+</script></body></html>
