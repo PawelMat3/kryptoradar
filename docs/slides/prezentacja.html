@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Krypto Radar – prezentacja</title>
+<style>
+  @page { size: 1280px 720px; margin: 0; }
+  :root { --ink: #18202c; --ink2: #4b5565; --ink3: #7a8597; --line: #d8dde5; --soft: #f2f4f7; --accent: #1d4f80; --high: #1e6b45; --mid: #8a6a12; --low: #8a4b1e; --danger: #a3302b; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #fff; color: var(--ink); font-family: 'Segoe UI', system-ui, sans-serif; }
+  .slide { width: 1280px; height: 720px; padding: 56px 72px; position: relative; overflow: hidden; page-break-after: always; break-after: page; display: flex; flex-direction: column; }
+  .slide:last-child { page-break-after: auto; break-after: auto; }
+  h1 { font-size: 40px; margin: 0 0 28px; letter-spacing: -0.01em; }
+  h2 { font-size: 20px; margin: 0 0 10px; color: var(--ink2); font-weight: 600; }
+  p, li, td, th { font-size: 20px; line-height: 1.45; }
+  ul { margin: 0; padding-left: 22px; }
+  li { margin: 6px 0; }
+  .num { position: absolute; right: 48px; bottom: 28px; font-size: 14px; color: var(--ink3); }
+  .brand { position: absolute; left: 72px; bottom: 28px; font-size: 14px; color: var(--ink3); }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; flex: 1; min-height: 0; }
+  .cols.w { grid-template-columns: 0.85fr 1.15fr; }
+  .shot { border: 1px solid var(--line); border-radius: 6px; width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
+  .shotbox { min-height: 0; }
+  .cols > table, .cols > ul { align-self: start; }
+  .kpi code { white-space: nowrap; }
+  code, .mono { font-family: 'Cascadia Mono', Consolas, monospace; }
+  .formula { background: var(--soft); border-radius: 6px; padding: 18px 22px; font-size: 19px; line-height: 1.6; margin-bottom: 22px; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 15px; color: var(--ink2); font-weight: 600; }
+  td.r { text-align: right; font-variant-numeric: tabular-nums; font-family: 'Cascadia Mono', Consolas, monospace; }
+  .small td, .small th { font-size: 16px; padding: 5px 8px; }
+  .muted { color: var(--ink3); }
+  .tag { display: inline-block; font-size: 15px; border: 1px solid var(--line); border-radius: 4px; padding: 1px 8px; color: var(--ink2); }
+  .flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 8px; }
+  .step { border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; }
+  .step b { display: block; font-size: 19px; margin-bottom: 4px; }
+  .step span { font-size: 15px; color: var(--ink2); line-height: 1.35; display: block; }
+  .step i { font-style: normal; font-size: 13px; color: var(--ink3); }
+  .big { font-size: 64px; font-weight: 700; letter-spacing: -0.02em; line-height: 1; }
+  .kpi { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 28px; }
+  .kpi div { border-top: 3px solid var(--ink); padding-top: 12px; }
+  .kpi p { margin: 6px 0 0; font-size: 18px; color: var(--ink2); }
+  .title h1 { font-size: 76px; margin: 120px 0 18px; }
+  .title p.lead { font-size: 28px; color: var(--ink2); max-width: 900px; margin: 0; }
+  .title .meta { margin-top: auto; font-size: 18px; color: var(--ink3); }
+  .quote { font-size: 30px; line-height: 1.35; border-left: 4px solid var(--ink); padding-left: 24px; margin: 8px 0 28px; max-width: 1000px; }
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<section class="slide title">
+  <h1>Krypto Radar</h1>
+  <p class="lead">Łączy publiczne ślady cyfrowe osoby z adresami kryptowalutowymi, liczy jawny Wskaźnik Pewności i wskazuje sygnały wymiany krypto na fiat.</p>
+  <div class="meta">HackNation 2026 · wyzwanie MF / KAS „Osintowy Łapacz Cyfrowych Śladów” · github.com/PawelMat3/kryptoradar</div>
+</section>
+
+<!-- 2 -->
+<section class="slide">
+  <h1>Problem</h1>
+  <p class="quote">Adres portfela trafia do bio na GitHubie, ogłoszenia P2P albo wątku na forum. Przychód ze sprzedaży krypto nie trafia do PIT-38.</p>
+  <ul>
+    <li>Analityk KAS łączy te ślady ręcznie – źródła są rozproszone, a skala rośnie.</li>
+    <li>Wynik trudno powtórzyć i uzasadnić: dlaczego ten adres, jak pewnie, na podstawie czego?</li>
+    <li>Łatwo o błąd: adres giełdy, kontraktu albo innej osoby wklejony w tym samym wątku.</li>
+  </ul>
+  <div class="brand">Krypto Radar</div><div class="num">2</div>
+</section>
+
+<!-- 3 -->
+<section class="slide">
+  <h1>Jak działa</h1>
+  <div class="flow">
+    <div class="step"><i>1</i><b>Wejście</b><span>imię, nick, e-mail, komunikator, URL, adres – wystarczy jedno</span></div>
+    <div class="step"><i>2</i><b>Odkrywanie</b><span>Maigret: konta po nicku · SearXNG: strony z identyfikatorami</span></div>
+    <div class="step"><i>3</i><b>Archiwizacja</b><span>URL, czas, HTTP, SHA-256 · robots.txt · allowlista</span></div>
+    <div class="step"><i>4</i><b>Tożsamość</b><span>czy źródło naprawdę należy do osoby (T)</span></div>
+    <div class="step"><i>5</i><b>Adresy</b><span>BTC, ETH, TRON, LTC z walidacją sum kontrolnych</span></div>
+    <div class="step"><i>6</i><b>Weryfikacja</b><span>etykiety giełd i kontraktów · bytecode · tagi</span></div>
+    <div class="step"><i>7</i><b>On-chain</b><span>transakcje, kontrahenci, wskaźniki cash-out</span></div>
+    <div class="step"><i>8</i><b>Wynik</b><span>Wskaźnik Pewności z rozpisanymi regułami</span></div>
+    <div class="step"><i>9</i><b>Zmiany</b><span>porównanie z poprzednim przebiegiem</span></div>
+    <div class="step"><i>10</i><b>Raport</b><span>fakt / obliczenie / wniosek do weryfikacji</span></div>
+  </div>
+  <p class="muted" style="margin-top:28px">Tryb <b>demo</b> (syntetyczne źródła, offline) lub <b>live</b> (prawdziwy internet) wybierany przy każdej sprawie. Analizy cykliczne według harmonogramu.</p>
+  <div class="brand">Krypto Radar</div><div class="num">3</div>
+</section>
+
+<!-- 4 -->
+<section class="slide">
+  <h1>Parametry wyszukiwania</h1>
+  <div class="cols">
+    <table class="small">
+      <tr><th>Wejście</th><th>Co robimy</th></tr>
+      <tr><td>Nick</td><td>Maigret: GitHub, GitLab, Keybase, HN, Telegram, Reddit · bez rekurencji · timeout 15 s</td></tr>
+      <tr><td>Imię i nazwisko</td><td><code>"Imię Nazwisko"</code> oraz wariant z <code>bitcoin OR ethereum OR USDT OR portfel…</code></td></tr>
+      <tr><td>E-mail</td><td><code>"e-mail"</code> · część lokalna jako dodatkowy nick</td></tr>
+      <tr><td>Komunikator</td><td>jak nick + potwierdzenie tożsamości na stronach</td></tr>
+      <tr><td>URL profilu</td><td>pobierany wprost, T = 1.0</td></tr>
+      <tr><td>Adres krypto</td><td>walidacja, etykiety, on-chain, wyszukiwanie adresu</td></tr>
+    </table>
+    <table class="small">
+      <tr><th>Limit / reguła</th><th>Wartość</th></tr>
+      <tr><td>Filtr trafności</td><td>wszystkie słowa identyfikatora w URL, tytule lub opisie</td></tr>
+      <tr><td>Strony na przebieg</td><td>40 · głębokość 2</td></tr>
+      <tr><td>Tempo</td><td>300 ms na host · po HTTP 429 host pomijany</td></tr>
+      <tr><td>Linki</td><td>tylko znane serwisy, bez nawigacji; w serwisie tylko wątki lub URL z nickiem</td></tr>
+      <tr><td>Za logowaniem</td><td>Instagram, Facebook, X, LinkedIn – pomijane</td></tr>
+      <tr><td>Sieć</td><td>allowlista · adresy prywatne zawsze blokowane</td></tr>
+    </table>
+  </div>
+  <div class="brand">Krypto Radar</div><div class="num">4</div>
+</section>
+
+<!-- 5 -->
+<section class="slide">
+  <h1>Wskaźnik Pewności</h1>
+  <div class="formula mono">wystąpienie = clamp(baza + kontekst, 0, 100) × T<br>wynik = min(100, max(wystąpienie) + 15 · synergia + 10 · przepływ on-chain)</div>
+  <div class="cols">
+    <table class="small">
+      <tr><th>Źródło</th><th style="text-align:right">Baza</th></tr>
+      <tr><td>Własny profil</td><td class="r">90</td></tr>
+      <tr><td>Strona osobista</td><td class="r">85</td></tr>
+      <tr><td>Ogłoszenie P2P</td><td class="r">70</td></tr>
+      <tr><td>Komunikator – rozliczenie</td><td class="r">65</td></tr>
+      <tr><td>Forum</td><td class="r">50</td></tr>
+      <tr><td>Giveaway</td><td class="r">20</td></tr>
+      <tr><td>Giełda · kontrakt · mikser · zbiórka</td><td class="r">0</td></tr>
+    </table>
+    <table class="small">
+      <tr><th>T – czy źródło należy do osoby</th><th style="text-align:right"></th></tr>
+      <tr><td>URL od analityka</td><td class="r">1.0</td></tr>
+      <tr><td>Link z profilu osoby</td><td class="r">≤0.85</td></tr>
+      <tr><td>Ten sam nick</td><td class="r">0.6</td></tr>
+      <tr><td>Imię / e-mail / komunikator na stronie</td><td class="r">+0.15</td></tr>
+      <tr><td>Nick pospolity</td><td class="r">−0.2</td></tr>
+      <tr><td>Inne imię i nazwisko na profilu</td><td class="r">−0.35</td></tr>
+      <tr><td>Kontekst zdania: „mój portfel” / „adres giełdy”</td><td class="r">+5 / −25</td></tr>
+    </table>
+  </div>
+  <div class="brand">Krypto Radar</div><div class="num">5</div>
+</section>
+
+<!-- 6 -->
+<section class="slide">
+  <h1>Każdy wynik jest uzasadniony</h1>
+  <div class="cols w">
+    <ul>
+      <li>Tabela reguł: baza, kontekst, T, synergia, limit.</li>
+      <li>Każde wystąpienie: zdanie z adresem, autor wpisu, kopia archiwalna strony.</li>
+      <li>Przykład: adres ETH na profilu DevHub, stronie osobistej i w ogłoszeniu P2P → <b>100%</b>.</li>
+      <li>Ten sam nick na GameHub, ale profil „Piotr Inny” → <b>24%</b>.</li>
+    </ul>
+    <div class="shotbox"><img class="shot" src="../screenshots/03-adresy.png" alt=""></div>
+  </div>
+  <div class="brand">Krypto Radar</div><div class="num">6</div>
+</section>
+
+<!-- 7 -->
+<section class="slide">
+  <h1>Odrzucanie błędnych przypisań</h1>
+  <div class="cols w">
+    <ul>
+      <li><b>Sumy kontrolne</b> – literówka w adresie = odrzucony kandydat.</li>
+      <li><b>Etykiety</b> – Binance, Kraken, Coinbase, USDT, Uniswap, Tornado Cash, zbiórki → 0%.</li>
+      <li><b>Bytecode ≠ 0x</b> – kontrakt bez etykiety też odpada.</li>
+      <li><b>Autor wpisu</b> – adres innego uczestnika wątku nie trafia do osoby.</li>
+      <li><b>Giveaway</b> wykrywany automatycznie → 10–39%.</li>
+    </ul>
+    <div class="shotbox"><img class="shot" src="../screenshots/06-odrzucone.png" alt=""></div>
+  </div>
+  <div class="brand">Krypto Radar</div><div class="num">7</div>
+</section>
+
+<!-- 8 -->
+<section class="slide">
+  <h1>Blockchain i wyjście do fiat</h1>
+  <div class="cols w">
+    <table class="small">
+      <tr><td><code>CEX_DEPOSIT</code></td><td>wpłata na giełdę</td></tr>
+      <tr><td><code>OFFRAMP_GATEWAY</code></td><td>bramka / karta krypto</td></tr>
+      <tr><td><code>P2P_SERVICE</code></td><td>escrow P2P</td></tr>
+      <tr><td><code>STABLECOIN_SWAP</code></td><td>DEX → USDT w 24 h</td></tr>
+      <tr><td><code>MIXER</code></td><td>mikser</td></tr>
+      <tr><td><code>CEX_WITHDRAWAL</code></td><td>zakup na giełdzie</td></tr>
+      <tr><td colspan="2" class="muted">Każdy wskaźnik wskazuje transakcje. Dane: Blockscout (ETH + ERC-20), mempool.space (BTC) – oba do samodzielnego hostowania.</td></tr>
+    </table>
+    <div class="shotbox"><img class="shot" src="../screenshots/05-blockchain.png" alt=""></div>
+  </div>
+  <div class="brand">Krypto Radar</div><div class="num">8</div>
+</section>
+
+<!-- 9 -->
+<section class="slide">
+  <h1>Graf powiązań i zmiany w czasie</h1>
+  <div class="cols w">
+    <ul>
+      <li>Ścieżka dowodowa: identyfikator → źródło → adres → giełda.</li>
+      <li>Analizy cykliczne; każdy przebieg porównywany z poprzednim.</li>
+      <li>Wykryta <b>podmiana adresu</b> na profilu – nowy adres dostaje premię za przelew z poprzedniego (80%).</li>
+      <li>Raport HTML/PDF i JSON: FAKT / OBLICZENIE / WNIOSEK, SHA-256, wersje, dziennik zapytań.</li>
+    </ul>
+    <div class="shotbox"><img class="shot" src="../screenshots/04-graf.png" alt=""></div>
+  </div>
+  <div class="brand">Krypto Radar</div><div class="num">9</div>
+</section>
+
+<!-- 10 -->
+<section class="slide">
+  <h1>Wynik i wdrożenie</h1>
+  <div class="kpi">
+    <div><span class="big">21/21</span><p>scenariusz akceptacyjny end-to-end na danych syntetycznych</p></div>
+    <div><span class="big">31</span><p>testów jednostkowych: adresy, punktacja, tożsamość, cash-out, SSRF</p></div>
+    <div><span class="big">1</span><p>polecenie: <code>docker compose up -d --build</code></p></div>
+  </div>
+  <div class="cols">
+    <ul>
+      <li>Node.js + TypeScript, React, PostgreSQL, Python (Maigret), SearXNG – open source.</li>
+      <li>Bez chmury publicznej; AI opcjonalne i lokalne (API zgodne z OpenAI), bez wpływu na wynik.</li>
+      <li>Rozbudowa: źródło = wpis JSON, etykiety = plik JSON, sieć = klasa <code>ChainProvider</code>.</li>
+    </ul>
+    <ul>
+      <li>Dalej: przeglądarka headless dla stron JS, otwarte etykiety BTC i klastrowanie, kolejne sieci EVM, SSO KAS.</li>
+      <li class="muted">github.com/PawelMat3/kryptoradar</li>
+    </ul>
+  </div>
+  <div class="brand">Krypto Radar</div><div class="num">10</div>
+</section>
+
+</body>
+</html>

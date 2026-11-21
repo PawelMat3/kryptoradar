@@ -1,0 +1,73 @@
+[
+  { "id": "github-gist", "name": "GitHub Gist", "match": { "host": "gist.github.com" }, "category": "CODE_REPOSITORY", "kind": "profile" },
+  {
+    "id": "github",
+    "name": "GitHub",
+    "match": { "host": "github.com" },
+    "category": "OWN_PROFILE",
+    "kind": "profile",
+    "adapter": "github-api",
+    "nameSelector": "[itemprop=name]"
+  },
+  { "id": "gitlab", "name": "GitLab", "match": { "host": "gitlab.com" }, "category": "OWN_PROFILE", "kind": "profile" },
+  { "id": "keybase", "name": "Keybase", "match": { "host": "keybase.io" }, "category": "OWN_PROFILE", "kind": "profile" },
+  { "id": "hackernews", "name": "Hacker News", "match": { "host": "news.ycombinator.com" }, "category": "FORUM_POST", "kind": "profile" },
+  { "id": "telegram", "name": "Telegram (publiczny podgląd)", "match": { "host": "t.me" }, "category": "MESSENGER_SETTLEMENT", "kind": "profile" },
+  { "id": "reddit", "name": "Reddit", "match": { "host": "www.reddit.com" }, "category": "FORUM_POST", "kind": "profile" },
+  { "id": "wayback", "name": "Internet Archive (Wayback)", "match": { "host": "web.archive.org" }, "category": "UNKNOWN_WEB", "kind": "archive" },
+
+  {
+    "id": "devhub",
+    "name": "DevHub (syntetyczny serwis programistyczny)",
+    "demo": true,
+    "match": { "host": "devhub.test" },
+    "category": "OWN_PROFILE",
+    "kind": "profile",
+    "nameSelector": "[itemprop=name]"
+  },
+  {
+    "id": "jan-testowy-site",
+    "name": "Strona osobista jan-testowy.test (syntetyczna)",
+    "demo": true,
+    "match": { "host": "jan-testowy.test" },
+    "category": "PERSONAL_SITE",
+    "kind": "site"
+  },
+  {
+    "id": "p2pmarket",
+    "name": "P2P Market (syntetyczny serwis ogłoszeń)",
+    "demo": true,
+    "match": { "host": "p2p.test" },
+    "category": "P2P_LISTING",
+    "kind": "listing",
+    "segments": { "selector": ".listing", "author": ".seller", "content": ".body" }
+  },
+  {
+    "id": "cryptoforum",
+    "name": "KryptoForum (syntetyczne forum)",
+    "demo": true,
+    "match": { "host": "forum.test" },
+    "category": "FORUM_POST",
+    "kind": "forum",
+    "segments": { "selector": ".post", "author": ".author", "content": ".content" },
+    "overrides": [{ "pathPrefix": "/thread/giveaway", "category": "MASS_COMMENT" }]
+  },
+  {
+    "id": "tgpreview",
+    "name": "Telegram – publiczny kanał (syntetyczny)",
+    "demo": true,
+    "match": { "host": "tg.test" },
+    "category": "MESSENGER_SETTLEMENT",
+    "kind": "messenger",
+    "segments": { "selector": ".msg", "author": ".from", "content": ".text" }
+  },
+  {
+    "id": "gamehub",
+    "name": "GameHub (syntetyczny serwis gier)",
+    "demo": true,
+    "match": { "host": "gamehub.test" },
+    "category": "OWN_PROFILE",
+    "kind": "profile",
+    "nameSelector": "[itemprop=name]"
+  }
+]

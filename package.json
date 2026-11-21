@@ -1,0 +1,21 @@
+{
+  "name": "krypto-radar",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Krypto Radar – OSINT: ślady Web2 ↔ adresy krypto (Web3).",
+  "license": "MIT",
+  "workspaces": [
+    "apps/api",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev:api": "npm run dev -w apps/api",
+    "dev:web": "npm run dev -w apps/web",
+    "build": "npm run build -w apps/api && npm run build -w apps/web",
+    "test": "npm test -w apps/api",
+    "acceptance": "node scripts/acceptance.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "description": "Scenariusz syntetyczny: fikcyjna osoba 'Jan Testowy' (nick kryptokowal77). Wszystkie serwisy *.test i transakcje są wygenerowane (services/mock-osint, apps/api/scripts).",
+  "input": {
+    "fullName": "Jan Testowy",
+    "usernames": ["kryptokowal77"],
+    "emails": ["jan.testowy@example.com"],
+    "messengers": [],
+    "profileUrls": [],
+    "addresses": []
+  },
+  "expect": {
+    "run1": [
+      { "id": "A1", "address": "0x487640ECda7BC1d0291C68548d716678Ce7491De", "status": "attributed", "min": 80, "rules": ["SYNERGY"], "why": "Główny adres ETH: własny profil + strona osobista + ogłoszenie P2P → bardzo wysoka pewność z synergią" },
+      { "id": "A2", "address": "bc1ql5fslaa77sx0xsj93cx5alz84f3vc6fx05erpe", "status": "attributed", "min": 60, "rules": ["SYNERGY"], "why": "Adres BTC: ogłoszenie P2P + wpis na forum (dwa niezależne źródła)" },
+      { "id": "A3", "address": "TMPwAxjCpL7FRJwpUaFvGGdycdG9K1H3P8", "status": "attributed", "min": 50, "max": 79, "why": "Adres TRON w kontekście rozliczenia na kanale Telegram" },
+      { "id": "A4", "address": "0x3dE42CF06DbCa3c57389724b2FBfca40F9B87637", "status": "attributed", "min": 10, "max": 39, "why": "Adres z masowego wątku giveaway → niska pewność (szum)" },
+      { "id": "A5", "address": "0x510f54a6551a0f8687C3B02cCa21f35474cE0e65", "status": "attributed", "max": 39, "rules": ["ID_NAME_CONFLICT"], "why": "Ten sam nick w innym serwisie, ale profil innej osoby (Piotr Inny) → niska pewność" },
+      { "id": "X1", "address": "0x28C6c06298d514Db089934071355E5743bf21d60", "status": "excluded", "rules": ["EXCL_LABEL_EXCHANGE"], "why": "Adres giełdy Binance wspomniany przez osobę → wykluczony (0%), interakcja odnotowana" },
+      { "id": "X2", "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7", "status": "excluded", "rules": ["EXCL_LABEL_TOKEN"], "why": "Kontrakt USDT na własnym profilu → wykluczony mimo wiarygodnego źródła" },
+      { "id": "X3", "address": "0x93f8035d02E816C1d36491BBeD588B00C6030b0b", "status": "excluded", "rules": ["EXCL_CONTRACT_BYTECODE"], "why": "Nieoznaczony smart kontrakt rozpoznany po bytecode ≠ 0x → wykluczony" },
+      { "id": "X4", "address": "0x4437BC57df45449f8370da5c50D0064603ecB44E", "status": "absent", "why": "Adres innego autora w tym samym wątku nie jest przypisany osobie" }
+    ],
+    "indicators": [
+      { "id": "C1", "address": "0x487640ECda7BC1d0291C68548d716678Ce7491De", "indicators": ["CEX_DEPOSIT", "STABLECOIN_SWAP", "P2P_SERVICE", "OFFRAMP_GATEWAY", "CEX_WITHDRAWAL"], "why": "Wskaźniki cash-out: wymiana na USDT, wpłata na giełdę, escrow P2P, bramka karty krypto" },
+      { "id": "C2", "address": "bc1ql5fslaa77sx0xsj93cx5alz84f3vc6fx05erpe", "indicators": ["CEX_DEPOSIT"], "why": "BTC wysłane na adres giełdy" }
+    ],
+    "otherAuthors": ["0x4437BC57df45449f8370da5c50D0064603ecB44E"],
+    "rejectedTypo": "0x487640ECda7BC1d0291C68548d716678Ce7491de",
+    "swap": { "url": "http://devhub.test/kryptokowal77", "before": "0x487640ECda7BC1d0291C68548d716678Ce7491De", "after": "0xcf948D1ab769B8ce89460E98c916B167CbCE78a8" }
+  }
+}

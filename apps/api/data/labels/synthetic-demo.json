@@ -1,0 +1,4 @@
+[
+  { "chain": "ETH", "address": "0xE0937e1c4dA553b1e8E1d77F7E10Ca015c6eEb15", "name": "MockP2P Escrow (syntetyczny)", "category": "p2p", "source": "dane syntetyczne scenariusza demo", "synthetic": true },
+  { "chain": "ETH", "address": "0x0cAAf04a4cFA625b28EC98679136608B2D59FeD9", "name": "KartaKrypto – bramka karty krypto-fiat (syntetyczna)", "category": "offramp", "source": "dane syntetyczne scenariusza demo", "synthetic": true }
+]

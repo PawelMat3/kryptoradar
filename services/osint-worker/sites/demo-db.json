@@ -1,0 +1,18 @@
+{
+  "sites": {
+    "DevHub": { "tags": ["coding"], "checkType": "status_code", "url": "http://devhub.test/{username}", "urlMain": "http://devhub.test/", "usernameClaimed": "kryptokowal77", "usernameUnclaimed": "noonewouldeverusethis7" },
+    "P2PMarket": { "tags": ["crypto", "classified"], "checkType": "status_code", "url": "http://p2p.test/user/{username}", "urlMain": "http://p2p.test/", "usernameClaimed": "kryptokowal77", "usernameUnclaimed": "noonewouldeverusethis7" },
+    "KryptoForum": { "tags": ["crypto", "forum"], "checkType": "status_code", "url": "http://forum.test/user/{username}", "urlMain": "http://forum.test/", "usernameClaimed": "kryptokowal77", "usernameUnclaimed": "noonewouldeverusethis7" },
+    "TelegramPreview": { "tags": ["messaging"], "checkType": "status_code", "url": "http://tg.test/s/{username}", "urlMain": "http://tg.test/", "usernameClaimed": "kryptokowal77", "usernameUnclaimed": "noonewouldeverusethis7" },
+    "GameHub": { "tags": ["gaming"], "checkType": "status_code", "url": "http://gamehub.test/u/{username}", "urlMain": "http://gamehub.test/", "usernameClaimed": "kryptokowal77", "usernameUnclaimed": "noonewouldeverusethis7" },
+    "PhotoHub": { "tags": ["photo"], "checkType": "status_code", "url": "http://photohub.test/{username}", "urlMain": "http://photohub.test/", "usernameClaimed": "blue", "usernameUnclaimed": "noonewouldeverusethis7" },
+    "MusicBox": { "tags": ["music"], "checkType": "status_code", "url": "http://musicbox.test/@{username}", "urlMain": "http://musicbox.test/", "usernameClaimed": "blue", "usernameUnclaimed": "noonewouldeverusethis7" },
+    "JobsBoard": { "tags": ["business"], "checkType": "status_code", "url": "http://jobs.test/in/{username}", "urlMain": "http://jobs.test/", "usernameClaimed": "blue", "usernameUnclaimed": "noonewouldeverusethis7" },
+    "Streamy": { "tags": ["streaming"], "checkType": "status_code", "url": "http://streamy.test/{username}", "urlMain": "http://streamy.test/", "usernameClaimed": "blue", "usernameUnclaimed": "noonewouldeverusethis7" },
+    "ShopIt": { "tags": ["shopping"], "checkType": "status_code", "url": "http://shop.test/seller/{username}", "urlMain": "http://shop.test/", "usernameClaimed": "blue", "usernameUnclaimed": "noonewouldeverusethis7" },
+    "WikiTalk": { "tags": ["wiki"], "checkType": "status_code", "url": "http://wiki.test/user/{username}", "urlMain": "http://wiki.test/", "usernameClaimed": "blue", "usernameUnclaimed": "noonewouldeverusethis7" },
+    "ChessClub": { "tags": ["gaming"], "checkType": "status_code", "url": "http://chess.test/member/{username}", "urlMain": "http://chess.test/", "usernameClaimed": "blue", "usernameUnclaimed": "noonewouldeverusethis7" }
+  },
+  "engines": {},
+  "tags": ["coding", "crypto", "classified", "forum", "messaging", "gaming", "photo", "music", "business", "streaming", "shopping", "wiki"]
+}

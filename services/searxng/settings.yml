@@ -1,0 +1,39 @@
+# SearXNG dla Krypto Radar (tylko sieć wewnętrzna).
+# Dostępna wyłącznie w wewnętrznej sieci Docker (bez portu na zewnątrz), używana przez API w trybie live.
+use_default_settings: true
+
+general:
+  instance_name: "Krypto Radar search"
+  enable_metrics: false
+
+search:
+  safe_search: 0
+  autocomplete: ""
+  formats:
+    - html
+    - json
+
+server:
+  # Nadpisywane zmienną SEARXNG_SECRET z docker-compose
+  secret_key: "change-me-via-SEARXNG_SECRET"
+  limiter: false
+  public_instance: false
+  image_proxy: false
+  method: "GET"
+
+# Kilka niezależnych silników – gdy jeden zablokuje zapytania (CAPTCHA), pozostałe nadal odpowiadają.
+engines:
+  - name: duckduckgo
+    disabled: true
+  - name: bing
+    disabled: false
+  - name: brave
+    disabled: false
+  - name: mojeek
+    disabled: false
+  - name: startpage
+    disabled: false
+
+outgoing:
+  request_timeout: 6.0
+  max_request_timeout: 12.0

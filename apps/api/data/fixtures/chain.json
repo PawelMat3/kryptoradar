@@ -1,0 +1,209 @@
+{
+  "ETH:0x487640ECda7BC1d0291C68548d716678Ce7491De": {
+    "info": {
+      "isContract": false,
+      "bytecodeEvidence": "eth_getCode → 0x (0 B) [fixture]",
+      "tags": []
+    },
+    "txs": [
+      {
+        "hash": "0xef2abaa25d3451a080dc3ba249fa7505b3aba6c893c37f3917739afd0e61ee4c",
+        "time": "2025-01-10T09:12:00Z",
+        "direction": "in",
+        "counterparty": "0x2910543Af39abA0Cd09dBb2D50200b3E800A63D2",
+        "asset": "ETH",
+        "amount": 2.4,
+        "kind": "native"
+      },
+      {
+        "hash": "0x406ddb068d6def468cf4ccb2a6e54b004db388388f017f23727cc87cdb49e78d",
+        "time": "2025-01-22T18:40:00Z",
+        "direction": "in",
+        "counterparty": "0xe2c01726937961f20ce072b1E0A3396EEa520b12",
+        "asset": "ETH",
+        "amount": 1.1,
+        "kind": "native"
+      },
+      {
+        "hash": "0x35f9da9ae355b487f194a497c06dd1506bbc50d9f17f09ed955504e520845133",
+        "time": "2025-02-03T11:05:00Z",
+        "direction": "out",
+        "counterparty": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
+        "asset": "ETH",
+        "amount": 1.5,
+        "kind": "contract_call",
+        "method": "swapExactETHForTokens"
+      },
+      {
+        "hash": "0x8c47b080f93895a0afa971b99219ea32513edc7a682f63f191d7858356ae0b27",
+        "time": "2025-02-03T11:05:12Z",
+        "direction": "in",
+        "counterparty": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
+        "asset": "USDT",
+        "amount": 4820.55,
+        "kind": "token"
+      },
+      {
+        "hash": "0xf15e77ace5973f41bdbbcf17527cc92d0ead961e0c38700b2a39c97e41a018f3",
+        "time": "2025-02-11T08:30:00Z",
+        "direction": "out",
+        "counterparty": "0x28C6c06298d514Db089934071355E5743bf21d60",
+        "asset": "USDT",
+        "amount": 4800,
+        "kind": "token"
+      },
+      {
+        "hash": "0x34c93d47435d147fcbaee6ab76b9360d59deae93649f4a6fe55578ef2052448e",
+        "time": "2025-03-15T20:15:00Z",
+        "direction": "out",
+        "counterparty": "0xE0937e1c4dA553b1e8E1d77F7E10Ca015c6eEb15",
+        "asset": "ETH",
+        "amount": 0.8,
+        "kind": "native"
+      },
+      {
+        "hash": "0xd45683aba53a11329866affa27cf8aa9652c97adbaf7b4d915cdf0b267cf7af9",
+        "time": "2025-04-01T12:00:00Z",
+        "direction": "in",
+        "counterparty": "0xe2c01726937961f20ce072b1E0A3396EEa520b12",
+        "asset": "USDC",
+        "amount": 750,
+        "kind": "token"
+      },
+      {
+        "hash": "0xa6ca515b59560dea6e3e172330071b5e5d5ead112791db432adfc4625da6771c",
+        "time": "2025-04-02T15:45:00Z",
+        "direction": "out",
+        "counterparty": "0x0cAAf04a4cFA625b28EC98679136608B2D59FeD9",
+        "asset": "USDC",
+        "amount": 700,
+        "kind": "token"
+      },
+      {
+        "hash": "0x6fb2f4c6f282ecfdcfc01c12037115460ca1c2ae07c913439bfba70d97fe5ec0",
+        "time": "2025-06-20T10:00:00Z",
+        "direction": "out",
+        "counterparty": "0xcf948D1ab769B8ce89460E98c916B167CbCE78a8",
+        "asset": "ETH",
+        "amount": 0.9,
+        "kind": "native"
+      }
+    ]
+  },
+  "ETH:0xcf948D1ab769B8ce89460E98c916B167CbCE78a8": {
+    "info": {
+      "isContract": false,
+      "bytecodeEvidence": "eth_getCode → 0x (0 B) [fixture]",
+      "tags": []
+    },
+    "txs": [
+      {
+        "hash": "0x6fb2f4c6f282ecfdcfc01c12037115460ca1c2ae07c913439bfba70d97fe5ec0",
+        "time": "2025-06-20T10:00:00Z",
+        "direction": "in",
+        "counterparty": "0x487640ECda7BC1d0291C68548d716678Ce7491De",
+        "asset": "ETH",
+        "amount": 0.9,
+        "kind": "native"
+      },
+      {
+        "hash": "0x6a101400605235414da133ced39bfc6bc230795787e2fc7aa5b98a1025802f49",
+        "time": "2025-07-04T21:30:00Z",
+        "direction": "out",
+        "counterparty": "0x12D66f87A04A9E220743712cE6d9bB1B5616B8Fc",
+        "asset": "ETH",
+        "amount": 0.1,
+        "kind": "contract_call",
+        "method": "deposit"
+      },
+      {
+        "hash": "0x2325dbe4b1acfd99e3e7e1305378116e23178aeaf4d47591afc2ae29226a989b",
+        "time": "2025-07-10T09:00:00Z",
+        "direction": "out",
+        "counterparty": "0x28C6c06298d514Db089934071355E5743bf21d60",
+        "asset": "ETH",
+        "amount": 0.7,
+        "kind": "native"
+      }
+    ]
+  },
+  "ETH:0x3dE42CF06DbCa3c57389724b2FBfca40F9B87637": {
+    "info": {
+      "isContract": false,
+      "bytecodeEvidence": "eth_getCode → 0x (0 B) [fixture]",
+      "tags": []
+    },
+    "txs": [
+      {
+        "hash": "0x239a19c1cbff40921aec46875ba8548ec617e0afc0eeece5aa1278f886313870",
+        "time": "2025-05-05T10:00:00Z",
+        "direction": "in",
+        "counterparty": "0xe2c01726937961f20ce072b1E0A3396EEa520b12",
+        "asset": "ETH",
+        "amount": 0.01,
+        "kind": "native"
+      }
+    ]
+  },
+  "ETH:0x510f54a6551a0f8687C3B02cCa21f35474cE0e65": {
+    "info": {
+      "isContract": false,
+      "bytecodeEvidence": "eth_getCode → 0x (0 B) [fixture]",
+      "tags": []
+    },
+    "txs": [
+      {
+        "hash": "0xf915bf1172a9d4fdc1f6270505db720f62d9d3cbcd0fcad4be2edad3c9b35166",
+        "time": "2024-11-11T11:11:00Z",
+        "direction": "in",
+        "counterparty": "0xe2c01726937961f20ce072b1E0A3396EEa520b12",
+        "asset": "ETH",
+        "amount": 0.3,
+        "kind": "native"
+      }
+    ]
+  },
+  "ETH:0x93f8035d02E816C1d36491BBeD588B00C6030b0b": {
+    "info": {
+      "isContract": true,
+      "bytecodeEvidence": "eth_getCode → 0x6080604052348015… (2 417 B) [fixture]",
+      "tags": []
+    },
+    "txs": []
+  },
+  "BTC:bc1ql5fslaa77sx0xsj93cx5alz84f3vc6fx05erpe": {
+    "info": {
+      "isContract": null,
+      "tags": []
+    },
+    "txs": [
+      {
+        "hash": "494499e626db9d9dfdf9f4b1940df6280dac4cdf73a0ad24c3c03cdb74bfd9b7",
+        "time": "2025-01-28T07:00:00Z",
+        "direction": "in",
+        "counterparty": "bc1q7wqcq8c2t7zn5n6y4cfsxwky44vyqqdzlefxj6",
+        "asset": "BTC",
+        "amount": 0.042,
+        "kind": "native"
+      },
+      {
+        "hash": "da8d7a2de13152d5f9ce10f780040aaafb466b34316f180b58a8ebe1aafcf18c",
+        "time": "2025-02-14T16:20:00Z",
+        "direction": "in",
+        "counterparty": "bc1qvvh9swf8w2zy5hjt93v263m42pr4tqepm368c9",
+        "asset": "BTC",
+        "amount": 0.065,
+        "kind": "native"
+      },
+      {
+        "hash": "130a01a02b00004e270841d8dc41475831ea8b71ffb5a9dbcba028d2689ed6ac",
+        "time": "2025-03-02T13:10:00Z",
+        "direction": "out",
+        "counterparty": "34xp4vRoCGJym3xR7yCVPFHoCNxv4Twseo",
+        "asset": "BTC",
+        "amount": 0.1,
+        "kind": "native"
+      }
+    ]
+  }
+}

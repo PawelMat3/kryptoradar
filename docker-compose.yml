@@ -1,0 +1,97 @@
+name: krypto-radar
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-radar}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-radar}
+      POSTGRES_DB: ${POSTGRES_DB:-radar}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-radar}"]
+      interval: 5s
+      retries: 20
+    networks: [internal]
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER:-radar}:${POSTGRES_PASSWORD:-radar}@db:5432/${POSTGRES_DB:-radar}
+      RADAR_LIVE_ENABLED: ${RADAR_LIVE_ENABLED:-false}
+      OSINT_WORKER_URL: http://osint-worker:8000
+      MOCK_ADMIN_URL: http://mock-osint
+      DEMO_SEARCH_URL: http://search.test
+      SEARXNG_URL: ${SEARXNG_URL:-http://searxng:8080}
+      EGRESS_ALLOWLIST: ${EGRESS_ALLOWLIST:-*.test,osint-worker,mock-osint}
+      EGRESS_OPEN_WEB: ${EGRESS_OPEN_WEB:-false}
+      GITHUB_TOKEN: ${GITHUB_TOKEN:-}
+      LLM_BASE_URL: ${LLM_BASE_URL:-}
+      LLM_MODEL: ${LLM_MODEL:-qwen2.5:3b}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+    depends_on:
+      db: { condition: service_healthy }
+      osint-worker: { condition: service_started }
+    networks: [internal, egress]
+
+  osint-worker:
+    build: services/osint-worker
+    restart: unless-stopped
+    environment:
+      MAIGRET_LIVE_SITES: ${MAIGRET_LIVE_SITES:-GitHub,GitLab,Keybase,HackerNews,Telegram,Reddit}
+    networks: [internal, egress]
+
+  searxng:
+    image: searxng/searxng:2026.11.20-cd6d28091
+    restart: unless-stopped
+    environment:
+      SEARXNG_SECRET: ${SEARXNG_SECRET:-change-me}
+      SEARXNG_BASE_URL: http://searxng:8080/
+    volumes:
+      - ./services/searxng/settings.yml:/etc/searxng/settings.yml:ro
+    networks: [internal, egress]
+
+  # Syntetyczne źródła dla trybu demo.
+  mock-osint:
+    build: services/mock-osint
+    restart: unless-stopped
+    sysctls:
+      net.ipv4.ip_unprivileged_port_start: 0
+    networks:
+      internal:
+        aliases:
+          [devhub.test, p2p.test, forum.test, tg.test, gamehub.test, jan-testowy.test, search.test,
+           photohub.test, musicbox.test, jobs.test, streamy.test, shop.test, wiki.test, chess.test]
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    restart: unless-stopped
+    ports:
+      - "${WEB_BIND:-127.0.0.1}:${WEB_PORT:-8080}:80"
+    depends_on: [api]
+    networks: [internal, public]
+
+  # Opcjonalnie: docker compose --profile ai up -d
+  ollama:
+    image: ollama/ollama:0.5.7
+    profiles: [ai]
+    volumes:
+      - ollama:/root/.ollama
+    networks: [internal]
+
+networks:
+  internal:
+    internal: true
+  egress:
+  public:
+
+volumes:
+  pgdata:
+  ollama:
